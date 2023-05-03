@@ -1,0 +1,2728 @@
+﻿<CAEXFile SchemaVersion="3.0" FileName="D:\Eclipse\Git\developmentForDissertation\AMLTopologyExtraction\src\topologyExtraction\Elektrolyse_Prozess_v2.aml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.dke.de/CAEX" xsi:schemaLocation="http://www.dke.de/CAEX CAEX_ClassModel_V.3.0.xsd">
+  <AdditionalInformation DocumentVersions="Recommendations" />
+  <SuperiorStandardVersion>AutomationML 2.10</SuperiorStandardVersion>
+  <SourceDocumentInformation OriginName="AutomationML Editor" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginVersion="6.1.7.0" LastWritingDateTime="2023-05-03T08:57:43.9606229+02:00" OriginProjectID="unspecified" OriginProjectTitle="unspecified" OriginRelease="6.1.7.0" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" />
+  <InstanceHierarchy Name="Process Hierarchy">
+    <Version>0</Version>
+    <InternalElement Name="ElectricityTransformator" ID="7c7de09a-3622-47c6-8eea-d9a64ca4c29f" RefBaseSystemUnitPath="SystemUnitClassLib/Resources/ElectricityTransformator">
+      <Attribute Name="Capacity" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Capacity">
+        <Value>100</Value>
+      </Attribute>
+      <Attribute Name="Throughput" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Throughput" />
+      <ExternalInterface Name="ProcessResource" ID="113f82f7-d69e-4b59-aa00-e8289e891e0a" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="113f82f7-d69e-4b59-aa00-e8289e891e0a" RefPartnerSideB="b15ef817-3a0f-41a1-8fa6-4496c6b5a24f" Name="Link" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+    </InternalElement>
+    <InternalElement Name="Electricity(Medium-Voltage)" ID="16e95bea-476b-42a5-bcff-72d1a0c16eea" RefBaseSystemUnitPath="SystemUnitClassLib/Energy/Electricity">
+      <Attribute Name="Voltage" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Voltage" Unit="V">
+        <Value>1000</Value>
+      </Attribute>
+      <ExternalInterface Name="ProcessEnergy" ID="28c920ba-56d4-404d-8876-fa0d6e541134" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="28c920ba-56d4-404d-8876-fa0d6e541134" RefPartnerSideB="e43ab3f4-f970-497e-8315-a8a35928bc75" Name="InternalLink" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Energy" />
+    </InternalElement>
+    <InternalElement Name="ElectricityTransformation" ID="239aae1f-5eb1-4034-a281-9e70b40746ae" RefBaseSystemUnitPath="SystemUnitClassLib/Processes/ElectricityTransformation">
+      <ExternalInterface Name="ProcessRessourceInput" ID="b15ef817-3a0f-41a1-8fa6-4496c6b5a24f" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessProductInput" ID="ceb9cb8c-641c-436d-9bd4-1521dca7c0ee" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessEnergyInput" ID="e43ab3f4-f970-497e-8315-a8a35928bc75" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessInformationInput" ID="9405af8d-a972-443b-aff7-bb6a22f6167c" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessResourceOutput" ID="8435a2d6-0420-46e6-85b4-dfb0b5b3add9" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessProductOutput" ID="600b4477-83ee-4110-ae07-cd541f4c8158" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessEnergyOutput" ID="26896c32-f20b-42d2-8cbd-461c153ebdef" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessInformationOutput0" ID="77873ba3-9211-46f4-82f7-70bc158084f4" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessInformationOutput1" ID="f3e6363f-70cb-43b0-ba58-20baaf481a72" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="26896c32-f20b-42d2-8cbd-461c153ebdef" RefPartnerSideB="af8418fb-a045-477e-b71f-5ec3664fee5b" Name="InternalLink" />
+      <InternalLink RefPartnerSideA="77873ba3-9211-46f4-82f7-70bc158084f4" RefPartnerSideB="08b8be05-dca5-45ee-84e9-9214b68cb82f" Name="InternalLink1" />
+      <InternalLink RefPartnerSideA="f3e6363f-70cb-43b0-ba58-20baaf481a72" RefPartnerSideB="d0e45434-5159-4bf8-853d-4612b4200abd" Name="InternalLink2" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Process" />
+    </InternalElement>
+    <InternalElement Name="Electricity(Low-Voltage)" ID="59f3d963-b381-47f0-90d5-ee10d50c5a8f" RefBaseSystemUnitPath="SystemUnitClassLib/Energy/Electricity">
+      <Attribute Name="Voltage" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Voltage" Unit="V">
+        <Value>230</Value>
+      </Attribute>
+      <ExternalInterface Name="ProcessEnergy0" ID="af8418fb-a045-477e-b71f-5ec3664fee5b" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessEnergy1" ID="7328c897-a306-474d-9f48-16418373a50d" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessEnergy2" ID="1677d931-f02e-49c6-9190-5e2d74a6c9a6" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessEnergy3" ID="3acddc40-44c6-465b-a06f-0e17ba193b32" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="7328c897-a306-474d-9f48-16418373a50d" RefPartnerSideB="3b41e21f-4b56-400b-bb63-8863b2199b16" Name="InternalLink" />
+      <InternalLink RefPartnerSideA="1677d931-f02e-49c6-9190-5e2d74a6c9a6" RefPartnerSideB="b45a3f4b-ca59-4ceb-aa6e-353080b56075" Name="InternalLink1" />
+      <InternalLink RefPartnerSideA="3acddc40-44c6-465b-a06f-0e17ba193b32" RefPartnerSideB="55db0662-f1c2-4932-a6fc-11a6c4ca5690" Name="InternalLink2" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Energy" />
+    </InternalElement>
+    <InternalElement Name="LimitsElectrolysis0" ID="26eb067f-2827-4995-9dfb-4d86ad057ca7" RefBaseSystemUnitPath="SystemUnitClassLib/Information/Dependency">
+      <Attribute Name="LimitsCapacity" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsCapacity" />
+      <Attribute Name="LimitsThroughput" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsThroughput" />
+      <Attribute Name="LimitsCapacity1" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsCapacity" />
+      <Attribute Name="LimitsThroughput1" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsThroughput" />
+      <ExternalInterface Name="DependencyCreator" ID="08b8be05-dca5-45ee-84e9-9214b68cb82f" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="DependencyRecipient" ID="424c47d8-d36b-49c3-881e-5b35e6eb317a" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="424c47d8-d36b-49c3-881e-5b35e6eb317a" RefPartnerSideB="7abcc770-1341-4764-9b5d-1edfdcc2d3fd" Name="InternalLink" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Information" />
+    </InternalElement>
+    <InternalElement Name="WaterPurifier0" ID="052b73a2-7afb-4a6c-93ac-c023db3a8535" RefBaseSystemUnitPath="SystemUnitClassLib/Resources/WaterPurifier">
+      <Attribute Name="Capacity" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Capacity">
+        <Value>80</Value>
+      </Attribute>
+      <Attribute Name="Throughput" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Throughput">
+        <Value>40</Value>
+      </Attribute>
+      <ExternalInterface Name="ProcessRessource" ID="844ccb80-e220-4736-9471-d6d5e744b701" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="844ccb80-e220-4736-9471-d6d5e744b701" RefPartnerSideB="9a4ea8a6-8857-4f4b-89ae-632c2e9b1330" Name="InternalLink" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+    </InternalElement>
+    <InternalElement Name="WaterPurification0" ID="12057f31-2662-4fc9-bd21-331855f97e61" RefBaseSystemUnitPath="SystemUnitClassLib/Processes/WaterPurification">
+      <ExternalInterface Name="ProcessResourceInput" ID="9a4ea8a6-8857-4f4b-89ae-632c2e9b1330" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessProductInput" ID="a986a13f-aa8c-49d0-9964-0ec590fbac11" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessEnergyInput" ID="3b41e21f-4b56-400b-bb63-8863b2199b16" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessInformationInput0" ID="64a56aa5-f4b9-46d7-9ed7-78b1b78308cf" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessResourceOutput" ID="060d88b1-5c73-4ddb-a503-9d1eb5a52051" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessProductOutput" ID="f435557d-4b50-42b6-82b7-4b0a1aa09973" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessEnergyOutput" ID="12d7dfd1-16e5-4fe1-8320-369bd623da74" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessInformationOutput" ID="0b92a9f5-cb88-462b-8c32-be47074f1015" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessInformationInput1" ID="ddeb4f33-38e7-4b09-a75c-39153c69c3c3" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="0b92a9f5-cb88-462b-8c32-be47074f1015" RefPartnerSideB="3f36df18-1135-4dd1-8941-2bf79fef8bab" Name="InternalLink1" />
+      <InternalLink RefPartnerSideA="f435557d-4b50-42b6-82b7-4b0a1aa09973" RefPartnerSideB="b78f2c5e-05f9-4aae-963f-9e47cb4788a0" Name="InternalLink" />
+      <InternalLink RefPartnerSideA="ddeb4f33-38e7-4b09-a75c-39153c69c3c3" RefPartnerSideB="294c46d6-814a-44d5-91a3-1aa145629c34" Name="InternalLink2" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Process" />
+    </InternalElement>
+    <InternalElement Name="LimitsElectrolysis1" ID="282be04f-3a7a-40f9-877b-395d27950fc6" RefBaseSystemUnitPath="SystemUnitClassLib/Information/Dependency">
+      <Attribute Name="LimitsCapacity" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsCapacity" />
+      <Attribute Name="LimitsThroughput" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsThroughput" />
+      <Attribute Name="LimitsCapacity1" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsCapacity" />
+      <Attribute Name="LimitsThroughput1" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsThroughput" />
+      <ExternalInterface Name="DependencyCreator0" ID="3f36df18-1135-4dd1-8941-2bf79fef8bab" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="DependencyRecipient" ID="ab018207-87e8-48a9-ad60-b55bd4f78c88" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="DependencyCreator1" ID="9aaf4334-f3a9-48ee-b823-ace1f40ae7f2" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="ab018207-87e8-48a9-ad60-b55bd4f78c88" RefPartnerSideB="666b378e-844d-4fe6-b33c-32a795e8fd4e" Name="InternalLink" />
+      <InternalLink RefPartnerSideA="9aaf4334-f3a9-48ee-b823-ace1f40ae7f2" RefPartnerSideB="cd9d7576-1e7f-43c8-bd22-7c71bf07fde4" Name="InternalLink1" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Information" />
+    </InternalElement>
+    <InternalElement Name="Electrolyzer" ID="cede3485-1782-48e7-a1c5-438b083b11c0" RefBaseSystemUnitPath="SystemUnitClassLib/Resources/Electrolyzer">
+      <Attribute Name="Capacity" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Capacity" />
+      <Attribute Name="Throughput" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Throughput" />
+      <ExternalInterface Name="ProcessResource" ID="800681c0-84ee-4d6b-9841-8a733de6cc4a" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="800681c0-84ee-4d6b-9841-8a733de6cc4a" RefPartnerSideB="e6cfb875-7dbc-4fe8-a3eb-1ed67ed0981a" Name="InternalLink" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+    </InternalElement>
+    <InternalElement Name="Electrolysis" ID="e454e70d-9d75-4407-a008-22afa0c0d012" RefBaseSystemUnitPath="SystemUnitClassLib/Processes/Electrolysis">
+      <ExternalInterface Name="ProcessResourceInput" ID="e6cfb875-7dbc-4fe8-a3eb-1ed67ed0981a" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessProductInput" ID="283a06ea-c561-452d-ae53-ba753968f443" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessEnergyInput" ID="b45a3f4b-ca59-4ceb-aa6e-353080b56075" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessInformationInput0" ID="7abcc770-1341-4764-9b5d-1edfdcc2d3fd" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessResourceOutput" ID="3f7baffe-1575-4613-8bff-4c0ba90f46c9" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessProductOutput" ID="02997e4b-1684-49e1-bf5e-4f96fc3684ad" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessEnergyOutput" ID="886b25a5-f17f-4b0a-bfe5-01aa07930068" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessInformationOutput" ID="e5d54c5f-a3a8-4719-9cff-6c184b1846e2" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessInformationInput1" ID="666b378e-844d-4fe6-b33c-32a795e8fd4e" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessInformationInput2" ID="b1122292-f9b3-4fe3-9dbb-ca589fb52fcd" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="02997e4b-1684-49e1-bf5e-4f96fc3684ad" RefPartnerSideB="56be58b8-a053-40c0-a55e-91661401d45d" Name="InternalLink" />
+      <InternalLink RefPartnerSideA="e5d54c5f-a3a8-4719-9cff-6c184b1846e2" RefPartnerSideB="8a2b4fe1-5e5b-48e1-9493-bd361c2b8d0c" Name="InternalLink1" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Process" />
+    </InternalElement>
+    <InternalElement Name="Water" ID="d2e3b34d-0120-48af-8ff5-769963e9040b" RefBaseSystemUnitPath="SystemUnitClassLib/Products/Water">
+      <Attribute Name="Pressure" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Pressure" Unit="Pa" />
+      <Attribute Name="Purified" AttributeDataType="xs:boolean" RefAttributeType="MyAttributeTypeLib/Purified">
+        <Value>false</Value>
+      </Attribute>
+      <ExternalInterface Name="ProcessProduct" ID="bb6c9536-28e0-45e1-a2e7-707fdbdfcf52" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessProduct1" ID="62188f3d-de4c-4f14-b653-80ce7443e778" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="bb6c9536-28e0-45e1-a2e7-707fdbdfcf52" RefPartnerSideB="a986a13f-aa8c-49d0-9964-0ec590fbac11" Name="InternalLink" />
+      <InternalLink RefPartnerSideA="62188f3d-de4c-4f14-b653-80ce7443e778" RefPartnerSideB="da7f226c-ce6d-45a8-93ee-aab493b530ab" Name="InternalLink1" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Product" />
+    </InternalElement>
+    <InternalElement Name="PurifiedWater" ID="ab648c72-c135-40a3-97f0-385a1aa6e917" RefBaseSystemUnitPath="SystemUnitClassLib/Products/Water">
+      <Attribute Name="Pressure" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Pressure" Unit="Pa" />
+      <Attribute Name="Purified" AttributeDataType="xs:boolean" RefAttributeType="MyAttributeTypeLib/Purified">
+        <Value>true</Value>
+      </Attribute>
+      <ExternalInterface Name="ProcessProduct0" ID="b78f2c5e-05f9-4aae-963f-9e47cb4788a0" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessProduct1" ID="e6b51161-0c2b-4f2f-8ed9-a4ff7ce7b57d" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessProduct2" ID="5398de67-c122-447f-89a2-fca67a7b30ec" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="e6b51161-0c2b-4f2f-8ed9-a4ff7ce7b57d" RefPartnerSideB="283a06ea-c561-452d-ae53-ba753968f443" Name="InternalLink" />
+      <InternalLink RefPartnerSideA="5398de67-c122-447f-89a2-fca67a7b30ec" RefPartnerSideB="698a59d4-ccd2-4b59-b871-4ae796a7809b" Name="InternalLink1" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Product" />
+    </InternalElement>
+    <InternalElement Name="Hydrogen" ID="1ef7006e-9e8f-42da-b200-030df9876ae1" RefBaseSystemUnitPath="SystemUnitClassLib/Products/Hydrogen">
+      <Attribute Name="Pressure" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Pressure" Unit="Pa" />
+      <Attribute Name="Purified" AttributeDataType="xs:boolean" RefAttributeType="MyAttributeTypeLib/Purified" />
+      <ExternalInterface Name="ProcessProduct0" ID="56be58b8-a053-40c0-a55e-91661401d45d" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessProduct1" ID="b94c1113-4547-410a-9c9e-6505c2d92368" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="b94c1113-4547-410a-9c9e-6505c2d92368" RefPartnerSideB="c99bc553-965e-4b4d-b7b9-35c83f3d9249" Name="InternalLink" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Product" />
+    </InternalElement>
+    <InternalElement Name="LimitsProcess" ID="04c2289b-0c44-4551-8f56-9b15e8e85e14" RefBaseSystemUnitPath="SystemUnitClassLib/Information/Dependency">
+      <Attribute Name="LimitsCapacity" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsCapacity" />
+      <Attribute Name="LimitsThroughput" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsThroughput" />
+      <Attribute Name="LimitsCapacity1" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsCapacity" />
+      <Attribute Name="LimitsThroughput1" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsThroughput" />
+      <ExternalInterface Name="DependencyRecipient1" ID="097a5b8a-5c82-4969-9750-7bf850b0a8cd" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="DependencyCreator" ID="8a2b4fe1-5e5b-48e1-9493-bd361c2b8d0c" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="DependencyRecipient0" ID="624de1de-8974-4eed-9178-e68e1342a728" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="DependencyRecipient2" ID="4e527eb7-6ded-496e-bf9c-789fa07ac0be" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="DependencyRecipient3" ID="3c79131c-cdf1-4ef1-9a81-c5e0b1527e1a" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="624de1de-8974-4eed-9178-e68e1342a728" RefPartnerSideB="64a56aa5-f4b9-46d7-9ed7-78b1b78308cf" Name="InternalLink" />
+      <InternalLink RefPartnerSideA="097a5b8a-5c82-4969-9750-7bf850b0a8cd" RefPartnerSideB="a064a775-0f58-44aa-90ed-18f19961074a" Name="InternalLink1" />
+      <InternalLink RefPartnerSideA="4e527eb7-6ded-496e-bf9c-789fa07ac0be" RefPartnerSideB="59861625-7804-4c1f-86be-3dd6d85ef9b3" Name="Link" />
+      <InternalLink RefPartnerSideA="3c79131c-cdf1-4ef1-9a81-c5e0b1527e1a" RefPartnerSideB="fbaa87bb-0c60-4b4a-ac1c-05287823bd41" Name="InternalLink2" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Information" />
+    </InternalElement>
+    <InternalElement Name="Compressor" ID="3d734272-ad9f-45fe-8650-821c73827d64" RefBaseSystemUnitPath="SystemUnitClassLib/Resources/Compressor">
+      <Attribute Name="Capacity" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Capacity">
+        <Value>50</Value>
+      </Attribute>
+      <Attribute Name="Throughput" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Throughput">
+        <Value>50</Value>
+      </Attribute>
+      <ExternalInterface Name="ProcessResource" ID="6601301d-ddb0-468b-ba5b-f5ffe271dfb2" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="6601301d-ddb0-468b-ba5b-f5ffe271dfb2" RefPartnerSideB="0df07b1c-1804-4dd7-82c6-2d8e5355f0c3" Name="InternalLink" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+    </InternalElement>
+    <InternalElement Name="GasCompression" ID="f307c84d-59c0-4a2f-aaec-d561f1d1f043" RefBaseSystemUnitPath="SystemUnitClassLib/Processes/GasCompression">
+      <ExternalInterface Name="ProcessResourceInput" ID="0df07b1c-1804-4dd7-82c6-2d8e5355f0c3" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessProductInput" ID="c99bc553-965e-4b4d-b7b9-35c83f3d9249" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessEnergyInput" ID="c6e105ad-a3b1-40e3-90fd-83163a0d73a1" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessInformationInput" ID="a064a775-0f58-44aa-90ed-18f19961074a" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessResourceOutput" ID="01fcb7bf-838c-428b-937f-5eaff1f361f0" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessProductOutput" ID="14f09a2f-d27d-4849-aefc-62a93a202790" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessEnergyOutput" ID="d8b5e8d3-e6d3-40c2-84dc-8d33bcaa251e" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessInformationOutput" ID="6041d296-1eb8-4171-b648-ab523b4b9f43" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="14f09a2f-d27d-4849-aefc-62a93a202790" RefPartnerSideB="d3bdd647-fbea-4a1b-a4aa-784e8f8f5892" Name="InternalLink" />
+      <InternalLink RefPartnerSideA="6041d296-1eb8-4171-b648-ab523b4b9f43" RefPartnerSideB="80b74a1a-af2b-47fc-956e-4a6cd1d0a9b1" Name="InternalLink1" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Process" />
+    </InternalElement>
+    <InternalElement Name="CompressedHydrogen" ID="d9dd34d4-61b8-4233-a462-674c28fc3d39" RefBaseSystemUnitPath="SystemUnitClassLib/Products/Hydrogen">
+      <Attribute Name="Pressure" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Pressure" Unit="Pa">
+        <Value>4000000</Value>
+      </Attribute>
+      <Attribute Name="Purified" AttributeDataType="xs:boolean" RefAttributeType="MyAttributeTypeLib/Purified" />
+      <ExternalInterface Name="ProcessProduct" ID="d3bdd647-fbea-4a1b-a4aa-784e8f8f5892" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessProduct1" ID="1f3f4907-3fe2-491b-b6e3-07efcef24c0a" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="1f3f4907-3fe2-491b-b6e3-07efcef24c0a" RefPartnerSideB="98cf0ffb-f270-49c8-b51a-579c1badfd5c" Name="InternalLink" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Product" />
+    </InternalElement>
+    <InternalElement Name="LimitsStorage" ID="65061818-11ad-419b-b4b2-8012736398ab" RefBaseSystemUnitPath="SystemUnitClassLib/Information/Dependency">
+      <Attribute Name="LimitsCapacity" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsCapacity" />
+      <Attribute Name="LimitsThroughput" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsThroughput" />
+      <Attribute Name="LimitsCapacity1" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsCapacity" />
+      <Attribute Name="LimitsThroughput1" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsThroughput" />
+      <ExternalInterface Name="DependencyCreator" ID="80b74a1a-af2b-47fc-956e-4a6cd1d0a9b1" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="DependencyRecipient" ID="1e179db1-a9ed-4158-ac42-fa9e04585a2a" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="1e179db1-a9ed-4158-ac42-fa9e04585a2a" RefPartnerSideB="8b018b02-2954-490c-9094-c4c296194a01" Name="InternalLink" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Information" />
+    </InternalElement>
+    <InternalElement Name="StorageTank" ID="34c2242b-9c2b-4ef9-8c1e-a8c3f9d05e1a" RefBaseSystemUnitPath="SystemUnitClassLib/Resources/StorageTank">
+      <Attribute Name="Capacity" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Capacity">
+        <Value>100</Value>
+      </Attribute>
+      <Attribute Name="Throughput" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Throughput" />
+      <ExternalInterface Name="ProcessResource" ID="eed662c1-3c5d-468e-bc0c-752efb80493f" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="eed662c1-3c5d-468e-bc0c-752efb80493f" RefPartnerSideB="5ffa49a7-7d99-4a94-ab21-af1bc59c7fa2" Name="InternalLink" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+    </InternalElement>
+    <InternalElement Name="GasStorage" ID="c9939990-df7a-4b9a-970d-1cf760d3523b" RefBaseSystemUnitPath="SystemUnitClassLib/Processes/GasStorage">
+      <ExternalInterface Name="ProcessResourceInput" ID="5ffa49a7-7d99-4a94-ab21-af1bc59c7fa2" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessProductInput" ID="98cf0ffb-f270-49c8-b51a-579c1badfd5c" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessEnergyInput" ID="b781b446-6c82-4d05-97d8-1d9f6e923cc6" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessInformationInput" ID="59861625-7804-4c1f-86be-3dd6d85ef9b3" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessResourceOutput" ID="4b219d2c-18d9-4466-920c-961a5a49d702" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessProductOutput" ID="f45052ff-fb61-43ac-a8d5-7ec6d49ec735" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessEnergyOutput" ID="2d2853ef-7db3-405d-8958-53d24c101555" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessInformationOutput" ID="a0a85744-357a-48a8-a56c-e8dac5d72962" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessInformationInput1" ID="8b018b02-2954-490c-9094-c4c296194a01" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="f45052ff-fb61-43ac-a8d5-7ec6d49ec735" RefPartnerSideB="acf9cc01-192e-46cd-95f2-85840fed77ca" Name="InternalLink" />
+      <InternalLink RefPartnerSideA="a0a85744-357a-48a8-a56c-e8dac5d72962" RefPartnerSideB="5aefed70-03b5-4f69-b500-5fc7de0ab381" Name="InternalLink1" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Process" />
+    </InternalElement>
+    <InternalElement Name="StoredCompressedHydrogen" ID="950e2f5b-594d-4c7a-9d95-be5cb05b1dd8" RefBaseSystemUnitPath="SystemUnitClassLib/Products/Hydrogen">
+      <Attribute Name="Pressure" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Pressure" Unit="Pa" />
+      <Attribute Name="Purified" AttributeDataType="xs:boolean" RefAttributeType="MyAttributeTypeLib/Purified" />
+      <ExternalInterface Name="ProcessProduct" ID="acf9cc01-192e-46cd-95f2-85840fed77ca" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Product" />
+    </InternalElement>
+    <InternalElement Name="LimitsElectrolysis2" ID="1b7abd8d-7145-4e85-8328-9c939a80e25f" RefBaseSystemUnitPath="SystemUnitClassLib/Information/Dependency">
+      <Attribute Name="LimitsCapacity" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsCapacity" />
+      <Attribute Name="LimitsThroughput" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsThroughput" />
+      <Attribute Name="LimitsCapacity1" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsCapacity" />
+      <Attribute Name="LimitsThroughput1" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsThroughput" />
+      <ExternalInterface Name="DependencyCreator" ID="5aefed70-03b5-4f69-b500-5fc7de0ab381" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="DependencyRecipient" ID="67c846f0-f571-4dc3-aef8-52291ab776b1" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="67c846f0-f571-4dc3-aef8-52291ab776b1" RefPartnerSideB="b1122292-f9b3-4fe3-9dbb-ca589fb52fcd" Name="InternalLink" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Information" />
+    </InternalElement>
+    <InternalElement Name="WaterPurifier1" ID="c50c566c-ac95-45fb-a96c-004cfab241d7" RefBaseSystemUnitPath="SystemUnitClassLib/Resources/WaterPurifier">
+      <Attribute Name="Capacity" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Capacity" />
+      <Attribute Name="Throughput" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Throughput" />
+      <ExternalInterface Name="ProcessResource" ID="558c926b-5805-409c-8bf3-18f64808618a" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="558c926b-5805-409c-8bf3-18f64808618a" RefPartnerSideB="dbeb889a-8724-455d-a22c-bbf9a3f88c8a" Name="Link" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+    </InternalElement>
+    <InternalElement Name="WaterPurification1" ID="88b0924f-170e-4da6-a13b-d5e7ec8ec749" RefBaseSystemUnitPath="SystemUnitClassLib/Processes/WaterPurification">
+      <ExternalInterface Name="ProcessRessourceInput" ID="dbeb889a-8724-455d-a22c-bbf9a3f88c8a" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessProductInput" ID="da7f226c-ce6d-45a8-93ee-aab493b530ab" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessEnergyInput" ID="55db0662-f1c2-4932-a6fc-11a6c4ca5690" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessInformationInput0" ID="fbaa87bb-0c60-4b4a-ac1c-05287823bd41" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessRessourceOutput" ID="7c1a07a7-c5a4-4c90-8d81-207796437a7e" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessProductOutput" ID="698a59d4-ccd2-4b59-b871-4ae796a7809b" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessEnergyOutput" ID="eee22358-62d2-4cf8-8e9f-91632050cef7" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessInformationOutput" ID="cd9d7576-1e7f-43c8-bd22-7c71bf07fde4" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>Out</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessInformationInput1" ID="d2ebb1c1-dec1-474a-a4fe-a78e545b5b1f" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>In</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <InternalLink RefPartnerSideA="d2ebb1c1-dec1-474a-a4fe-a78e545b5b1f" RefPartnerSideB="2002a7ec-19b2-463c-bb67-4320d0979e3d" Name="InternalLink" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Process" />
+    </InternalElement>
+    <InternalElement Name="RestrictsWaterpurification" ID="929cb11a-67c0-4153-9741-2efda2337aa3" RefBaseSystemUnitPath="SystemUnitClassLib/Information/Dependency/RestrictiveDependency">
+      <Attribute Name="LimitsCapacity" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsCapacity" />
+      <Attribute Name="LimitsThroughput" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsThroughput" />
+      <Attribute Name="LimitsCapacity1" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsCapacity" />
+      <Attribute Name="LimitsThroughput1" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsThroughput" />
+      <ExternalInterface Name="DependencyCreator" ID="d0e45434-5159-4bf8-853d-4612b4200abd" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>In</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="DependencyRecipient0" ID="294c46d6-814a-44d5-91a3-1aa145629c34" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="DependencyRecipient1" ID="2002a7ec-19b2-463c-bb67-4320d0979e3d" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Information" />
+    </InternalElement>
+  </InstanceHierarchy>
+  <InterfaceClassLib Name="AutomationMLInterfaceClassLib" ChangeMode="state">
+    <Description>Standard Automation Markup Language Interface Class Library - Part 1 Content </Description>
+    <Version>2.10</Version>
+    <Copyright>AutomationML e.V.</Copyright>
+    <InterfaceClass Name="AutomationMLBaseInterface">
+      <InterfaceClass Name="Order" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface">
+        <Attribute Name="Direction" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction" AttributeDataType="xs:string">
+          <DefaultValue>InOut</DefaultValue>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </InterfaceClass>
+      <InterfaceClass Name="Port" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+        <Attribute Name="Cardinality" RefAttributeType="AutomationMLBaseAttributeTypeLib/Cardinality">
+          <Attribute Name="MinOccur" AttributeDataType="xs:unsignedInt" />
+          <Attribute Name="MaxOccur" AttributeDataType="xs:unsignedInt" />
+        </Attribute>
+        <Attribute Name="Category" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Category" />
+      </InterfaceClass>
+      <InterfaceClass Name="PPRConnector" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface">
+        <InterfaceClass Name="ProcessResource" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>InOut</DefaultValue>
+            <Value>InOut</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+          <ExternalInterface Name="ProcessResourceInput" ID="547e482a-0df6-4e3a-a2cd-961f0a1d5ded" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+            <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+              <DefaultValue>In</DefaultValue>
+              <Value>In</Value>
+              <Constraint Name="AllowedValues">
+                <NominalScaledType>
+                  <RequiredValue>In</RequiredValue>
+                  <RequiredValue>Out</RequiredValue>
+                  <RequiredValue>InOut</RequiredValue>
+                </NominalScaledType>
+              </Constraint>
+            </Attribute>
+          </ExternalInterface>
+          <ExternalInterface Name="ProcessResourceOutput" ID="c08b9a23-00e6-45fc-8beb-b5a772dde7b4" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+            <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+              <DefaultValue>Out</DefaultValue>
+              <Value>Out</Value>
+              <Constraint Name="AllowedValues">
+                <NominalScaledType>
+                  <RequiredValue>In</RequiredValue>
+                  <RequiredValue>Out</RequiredValue>
+                  <RequiredValue>InOut</RequiredValue>
+                </NominalScaledType>
+              </Constraint>
+            </Attribute>
+          </ExternalInterface>
+        </InterfaceClass>
+        <InterfaceClass Name="ProcessProduct" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>InOut</DefaultValue>
+            <Value>InOut</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+          <ExternalInterface Name="ProcessProductInput" ID="5c216aa5-3b07-4715-825b-6349571aaeaf" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+            <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+              <DefaultValue>In</DefaultValue>
+              <Value>In</Value>
+              <Constraint Name="AllowedValues">
+                <NominalScaledType>
+                  <RequiredValue>In</RequiredValue>
+                  <RequiredValue>Out</RequiredValue>
+                  <RequiredValue>InOut</RequiredValue>
+                </NominalScaledType>
+              </Constraint>
+            </Attribute>
+          </ExternalInterface>
+          <ExternalInterface Name="ProcessProductOutput" ID="29ebe68e-dbaa-4753-a9d3-6f1784b3624c" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+            <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+              <DefaultValue>Out</DefaultValue>
+              <Value>Out</Value>
+              <Constraint Name="AllowedValues">
+                <NominalScaledType>
+                  <RequiredValue>In</RequiredValue>
+                  <RequiredValue>Out</RequiredValue>
+                  <RequiredValue>InOut</RequiredValue>
+                </NominalScaledType>
+              </Constraint>
+            </Attribute>
+          </ExternalInterface>
+        </InterfaceClass>
+        <InterfaceClass Name="ProcessEnergy" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>InOut</DefaultValue>
+            <Value>InOut</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+          <ExternalInterface Name="ProcessEnergyInput" ID="7f800a67-4930-4fd0-b864-71bba6c6a532" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+            <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+              <DefaultValue>In</DefaultValue>
+              <Value>In</Value>
+              <Constraint Name="AllowedValues">
+                <NominalScaledType>
+                  <RequiredValue>In</RequiredValue>
+                  <RequiredValue>Out</RequiredValue>
+                  <RequiredValue>InOut</RequiredValue>
+                </NominalScaledType>
+              </Constraint>
+            </Attribute>
+          </ExternalInterface>
+          <ExternalInterface Name="ProcessEnergyOutput" ID="187056ff-63b1-40af-a8b5-4a64ca1d3415" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+            <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+              <DefaultValue>Out</DefaultValue>
+              <Value>Out</Value>
+              <Constraint Name="AllowedValues">
+                <NominalScaledType>
+                  <RequiredValue>In</RequiredValue>
+                  <RequiredValue>Out</RequiredValue>
+                  <RequiredValue>InOut</RequiredValue>
+                </NominalScaledType>
+              </Constraint>
+            </Attribute>
+          </ExternalInterface>
+        </InterfaceClass>
+        <InterfaceClass Name="ProcessInformation" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>InOut</DefaultValue>
+            <Value>InOut</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+          <ExternalInterface Name="ProcessInformationInput" ID="b1f2f83c-7bb1-46f4-a106-ab99c0de9712" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+            <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+              <DefaultValue>In</DefaultValue>
+              <Value>In</Value>
+              <Constraint Name="AllowedValues">
+                <NominalScaledType>
+                  <RequiredValue>In</RequiredValue>
+                  <RequiredValue>Out</RequiredValue>
+                  <RequiredValue>InOut</RequiredValue>
+                </NominalScaledType>
+              </Constraint>
+            </Attribute>
+          </ExternalInterface>
+          <ExternalInterface Name="ProcessInformationOutput" ID="55c55910-f27a-4fe0-b93b-87ee8950d495" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+            <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+              <DefaultValue>Out</DefaultValue>
+              <Value>Out</Value>
+              <Constraint Name="AllowedValues">
+                <NominalScaledType>
+                  <RequiredValue>In</RequiredValue>
+                  <RequiredValue>Out</RequiredValue>
+                  <RequiredValue>InOut</RequiredValue>
+                </NominalScaledType>
+              </Constraint>
+            </Attribute>
+          </ExternalInterface>
+        </InterfaceClass>
+      </InterfaceClass>
+      <InterfaceClass Name="ExternalDataConnector" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface">
+        <Attribute Name="refURI" AttributeDataType="xs:anyURI" RefAttributeType="AutomationMLBaseAttributeTypeLib/refURI" />
+        <InterfaceClass Name="COLLADAInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector">
+          <Attribute Name="refType" AttributeDataType="xs:string" />
+          <Attribute Name="target" AttributeDataType="xs:token" />
+        </InterfaceClass>
+        <InterfaceClass Name="PLCopenXMLInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector" />
+        <InterfaceClass Name="ExternalDataReference" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector">
+          <Attribute Name="MIMEType" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/MIMEType" />
+        </InterfaceClass>
+      </InterfaceClass>
+      <InterfaceClass Name="Communication" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface">
+        <InterfaceClass Name="SignalInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication" />
+      </InterfaceClass>
+    </InterfaceClass>
+  </InterfaceClassLib>
+  <RoleClassLib Name="AutomationMLBaseRoleClassLib">
+    <Description>Automation Markup Language Base Role Class Library - Part 1</Description>
+    <Version>2.10.0</Version>
+    <RoleClass Name="AutomationMLBaseRole" ChangeMode="state">
+      <RoleClass Name="Group" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole">
+        <Attribute Name="AssociatedFacet" RefAttributeType="AutomationMLBaseAttributeTypeLib/AssociatedFacet" AttributeDataType="xs:string" />
+      </RoleClass>
+      <RoleClass Name="Facet" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
+      <RoleClass Name="Resource" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole">
+        <Attribute Name="Capacity" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Capacity" />
+        <Attribute Name="Throughput" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Throughput" />
+        <ExternalInterface Name="ProcessRessource" ID="9a3bd741-d182-47a3-a248-aa459a27025a" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>InOut</DefaultValue>
+            <Value>InOut</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+      </RoleClass>
+      <RoleClass Name="Product" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole">
+        <Attribute Name="Pressure" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Pressure" Unit="Pa" />
+        <Attribute Name="Purified" AttributeDataType="xs:boolean" RefAttributeType="MyAttributeTypeLib/Purified" />
+        <ExternalInterface Name="ProcessProduct" ID="02673f3e-0cd3-4c3a-b06c-eae818b539a9" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>InOut</DefaultValue>
+            <Value>InOut</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+      </RoleClass>
+      <RoleClass Name="Process" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole">
+        <ExternalInterface Name="ProcessRessourceInput" ID="751ff26d-7804-4710-82b5-a66d5b82c8df" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessProductInput" ID="9fea972e-3caa-4a26-bb46-6186f5fbc7e1" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessEnergyInput" ID="e3fa5b8a-9a7f-4f8c-9977-152e436e4d94" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessInformationInput" ID="a9d36f65-f4e0-4e7e-8d54-93772b46ce94" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessRessourceOutput" ID="9668874c-947e-4998-ac18-8c43471aaf37" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessProductOutput" ID="cdd37b6b-748a-4884-a295-1335d9491ff1" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessEnergyOutput" ID="4f1d2b11-0de2-45fa-912a-934d4c55f94b" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessInformationOutput" ID="cf5eb737-a84e-49d8-badd-09c87faeb577" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+      </RoleClass>
+      <RoleClass Name="Structure" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole">
+        <RoleClass Name="ProductStructure" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure" />
+        <RoleClass Name="ProcessStructure" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure" />
+        <RoleClass Name="ResourceStructure" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure" />
+      </RoleClass>
+      <RoleClass Name="ExternalData" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
+      <RoleClass Name="Energy" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole">
+        <Attribute Name="Voltage" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Voltage" Unit="V" />
+        <ExternalInterface Name="ProcessEnergy" ID="c0484d52-dfbd-47a6-b833-36f2be4ff214" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>InOut</DefaultValue>
+            <Value>InOut</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+      </RoleClass>
+      <RoleClass Name="Information" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole">
+        <Attribute Name="LimitsCapacity" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsCapacity" />
+        <Attribute Name="LimitsThroughput" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsThroughput" />
+        <Attribute Name="LimitsCapacity1" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsCapacity" />
+        <Attribute Name="LimitsThroughput1" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsThroughput" />
+        <ExternalInterface Name="ProcessInformation" ID="0a3a0380-ae45-4309-a8d5-abc6ad2e0781" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>InOut</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+      </RoleClass>
+    </RoleClass>
+  </RoleClassLib>
+  <SystemUnitClassLib Name="SystemUnitClassLib">
+    <Version>0</Version>
+    <SystemUnitClass Name="Resources" ID="76e721d1-d766-4f07-99c9-63e3197575fb">
+      <Attribute Name="Capacity" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Capacity" />
+      <Attribute Name="Throughput" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Throughput" />
+      <ExternalInterface Name="ProcessResource" ID="cf5ebacd-4f61-450a-96d6-80e591d38fb3" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <SupportedRoleClass RefRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+      <SystemUnitClass Name="ElectricityTransformator" ID="f70af125-17df-427d-bc0d-df8b2a19b727" RefBaseClassPath="SystemUnitClassLib/Resources">
+        <Attribute Name="Capacity" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Capacity" />
+        <Attribute Name="Throughput" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Throughput" />
+        <ExternalInterface Name="ProcessResource" ID="db3f055e-1f80-43d3-9a86-c730e515566c" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>InOut</DefaultValue>
+            <Value>InOut</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <SupportedRoleClass RefRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+      </SystemUnitClass>
+      <SystemUnitClass Name="WaterPurifier" ID="4e7e404a-5d97-42bb-8483-07ed0c7cc1d4" RefBaseClassPath="SystemUnitClassLib/Resources">
+        <Attribute Name="Capacity" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Capacity" />
+        <Attribute Name="Throughput" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Throughput" />
+        <ExternalInterface Name="ProcessResource" ID="0980c159-1c6d-4f4f-b75f-4eeedc02bae0" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>InOut</DefaultValue>
+            <Value>InOut</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <SupportedRoleClass RefRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+      </SystemUnitClass>
+      <SystemUnitClass Name="Electrolyzer" ID="65d1ebaa-75e3-4676-a8e7-85b84af8b9dd" RefBaseClassPath="SystemUnitClassLib/Resources">
+        <Attribute Name="Capacity" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Capacity" />
+        <Attribute Name="Throughput" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Throughput" />
+        <ExternalInterface Name="ProcessResource" ID="7354d32d-f72a-4d4e-bbec-484c799d8d19" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>InOut</DefaultValue>
+            <Value>InOut</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <SupportedRoleClass RefRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+      </SystemUnitClass>
+      <SystemUnitClass Name="Compressor" ID="02d93aab-6a16-4c5f-8e07-d32e7cf71da2" RefBaseClassPath="SystemUnitClassLib/Resources">
+        <Attribute Name="Capacity" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Capacity" />
+        <Attribute Name="Throughput" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Throughput" />
+        <ExternalInterface Name="ProcessResource" ID="f0b9e884-5ce9-4f76-95f4-0cb03a6c9062" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>InOut</DefaultValue>
+            <Value>InOut</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <SupportedRoleClass RefRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+      </SystemUnitClass>
+      <SystemUnitClass Name="StorageTank" ID="851a6c71-b12a-428c-accc-4d572ce803cf" RefBaseClassPath="SystemUnitClassLib/Resources">
+        <Attribute Name="Capacity" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Capacity" />
+        <Attribute Name="Throughput" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Throughput" />
+        <ExternalInterface Name="ProcessResource" ID="ed3163dd-c6e8-414f-bfa8-27ebca023281" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>InOut</DefaultValue>
+            <Value>InOut</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <SupportedRoleClass RefRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+      </SystemUnitClass>
+    </SystemUnitClass>
+    <SystemUnitClass Name="Products" ID="8d5588eb-55cb-4cd1-8e66-c02d09c85b44">
+      <Attribute Name="Pressure" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Pressure" Unit="Pa" />
+      <Attribute Name="Purified" AttributeDataType="xs:boolean" RefAttributeType="MyAttributeTypeLib/Purified" />
+      <SupportedRoleClass RefRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Product" />
+      <SystemUnitClass Name="Water" ID="0304268d-215a-4092-a9c1-5705effd6fba" RefBaseClassPath="SystemUnitClassLib/Products">
+        <Attribute Name="Pressure" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Pressure" Unit="Pa" />
+        <Attribute Name="Purified" AttributeDataType="xs:boolean" RefAttributeType="MyAttributeTypeLib/Purified" />
+        <ExternalInterface Name="ProcessProduct" ID="3010f667-bd62-4568-beb0-087899f5105e" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>InOut</DefaultValue>
+            <Value>InOut</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <SupportedRoleClass RefRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Product" />
+      </SystemUnitClass>
+      <SystemUnitClass Name="Hydrogen" ID="0279c5cb-9de6-4e14-82f3-7647cee33a3b">
+        <Attribute Name="Pressure" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Pressure" Unit="Pa" />
+        <Attribute Name="Purified" AttributeDataType="xs:boolean" RefAttributeType="MyAttributeTypeLib/Purified" />
+        <ExternalInterface Name="ProcessProduct" ID="70eb5e9d-36d9-41ac-9482-79315a8f60fa" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>InOut</DefaultValue>
+            <Value>InOut</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <SupportedRoleClass RefRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Product" />
+      </SystemUnitClass>
+    </SystemUnitClass>
+    <SystemUnitClass Name="Energy" ID="9a8a4619-8f74-4083-ae49-d0f1468fd10e">
+      <Attribute Name="Voltage" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Voltage" Unit="V" />
+      <ExternalInterface Name="ProcessEnergy" ID="58539fe8-9fd4-42cc-b7ca-d2a4f52c449e" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <SupportedRoleClass RefRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Energy" />
+      <SystemUnitClass Name="Electricity" ID="304ca8f5-1278-460c-a47d-902cc0e556d1" RefBaseClassPath="SystemUnitClassLib/Energy">
+        <Attribute Name="Voltage" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/Voltage" Unit="V" />
+        <ExternalInterface Name="ProcessEnergy" ID="b8477694-e1aa-4efc-8eb9-f74aabfd6c21" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>InOut</DefaultValue>
+            <Value>InOut</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <SupportedRoleClass RefRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Energy" />
+      </SystemUnitClass>
+    </SystemUnitClass>
+    <SystemUnitClass Name="Information" ID="83432982-573c-49ef-b1b8-a25379efc963">
+      <Attribute Name="LimitsCapacity" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsCapacity" />
+      <Attribute Name="LimitsThroughput" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsThroughput" />
+      <Attribute Name="LimitsCapacity1" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsCapacity" />
+      <Attribute Name="LimitsThroughput1" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsThroughput" />
+      <ExternalInterface Name="ProcessInformation" ID="3dfd765b-0f84-4edf-9b44-d2df844a130a" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>Out</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <SupportedRoleClass RefRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Information" />
+      <SystemUnitClass Name="Dependency" ID="28821e5d-d690-418a-8025-6756861d7d8d" RefBaseClassPath="SystemUnitClassLib/Information">
+        <Attribute Name="LimitsCapacity" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsCapacity" />
+        <Attribute Name="LimitsThroughput" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsThroughput" />
+        <Attribute Name="LimitsCapacity1" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsCapacity" />
+        <Attribute Name="LimitsThroughput1" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsThroughput" />
+        <ExternalInterface Name="DependencyCreator" ID="618be67f-a74f-4e14-bbcb-4ece92a29ae1" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>InOut</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="DependencyRecipient" ID="6419ab94-59c8-4950-b49e-0d0f863c909c" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>InOut</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <SupportedRoleClass RefRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Information" />
+        <SystemUnitClass Name="RestrictiveDependency" ID="46f50431-8c78-4307-be09-518d295a40d4" RefBaseClassPath="SystemUnitClassLib/Information/Dependency">
+          <Attribute Name="LimitsCapacity" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsCapacity" />
+          <Attribute Name="LimitsThroughput" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsThroughput" />
+          <Attribute Name="LimitsCapacity1" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsCapacity" />
+          <Attribute Name="LimitsThroughput1" AttributeDataType="xs:double" RefAttributeType="MyAttributeTypeLib/LimitsThroughput" />
+          <ExternalInterface Name="DependencyCreator" ID="cc880c1e-6ae7-40d2-8e8e-97cd54678331" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+            <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+              <DefaultValue>InOut</DefaultValue>
+              <Value>Out</Value>
+              <Constraint Name="AllowedValues">
+                <NominalScaledType>
+                  <RequiredValue>In</RequiredValue>
+                  <RequiredValue>Out</RequiredValue>
+                  <RequiredValue>InOut</RequiredValue>
+                </NominalScaledType>
+              </Constraint>
+            </Attribute>
+          </ExternalInterface>
+          <ExternalInterface Name="DependencyRecipient0" ID="c9ff0331-fbba-4428-adb4-242b89f0651a" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+            <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+              <DefaultValue>InOut</DefaultValue>
+              <Value>Out</Value>
+              <Constraint Name="AllowedValues">
+                <NominalScaledType>
+                  <RequiredValue>In</RequiredValue>
+                  <RequiredValue>Out</RequiredValue>
+                  <RequiredValue>InOut</RequiredValue>
+                </NominalScaledType>
+              </Constraint>
+            </Attribute>
+          </ExternalInterface>
+          <ExternalInterface Name="DependencyRecipient1" ID="a6308be6-f05b-4d0e-92b5-4054ed1e82ff" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+            <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+              <DefaultValue>InOut</DefaultValue>
+              <Value>Out</Value>
+              <Constraint Name="AllowedValues">
+                <NominalScaledType>
+                  <RequiredValue>In</RequiredValue>
+                  <RequiredValue>Out</RequiredValue>
+                  <RequiredValue>InOut</RequiredValue>
+                </NominalScaledType>
+              </Constraint>
+            </Attribute>
+          </ExternalInterface>
+          <SupportedRoleClass RefRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Information" />
+        </SystemUnitClass>
+      </SystemUnitClass>
+    </SystemUnitClass>
+    <SystemUnitClass Name="Processes" ID="ac5b5778-ba1f-40e3-90bd-40a05846add9">
+      <ExternalInterface Name="ProcessRessource" ID="eb2bc4fc-c280-4c25-b66a-cc43d6af5507" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessProduct" ID="3e6f88d7-b7c3-4f91-9ee2-1475faec1ddf" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessEnergy" ID="f49051e2-0785-4888-85aa-76c5c56286e2" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <ExternalInterface Name="ProcessInformation" ID="1f23b899-f5a0-4565-8c9c-46463cae193b" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <DefaultValue>InOut</DefaultValue>
+          <Value>InOut</Value>
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </ExternalInterface>
+      <SupportedRoleClass RefRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Process" />
+      <SystemUnitClass Name="ElectricityTransformation" ID="cb190ccf-8c11-42ee-9d5b-301d1ca7b372" RefBaseClassPath="SystemUnitClassLib/Processes">
+        <ExternalInterface Name="ProcessRessourceInput" ID="ffcc6c9c-9f5d-492e-91eb-5ba29651f05a" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessProductInput" ID="19b4826b-fccb-4eba-9ac2-3bc264569b10" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessEnergyInput" ID="c2bed191-7220-4b43-b873-f1c7cabc8291" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessInformationInput" ID="d3dc0a6a-c438-4e34-b3fb-968b661d7ba7" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessRessourceOutput" ID="4413a2a4-3987-4545-934b-b2200b538347" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessProductOutput" ID="36681e3b-ed6c-4879-ba71-eae97062d3c7" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessEnergyOutput" ID="d44168d0-7123-483e-a0f0-4eab1c246091" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessInformationOutput" ID="03599ed1-8c22-46d4-ad73-a06e100025d3" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <SupportedRoleClass RefRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Process" />
+      </SystemUnitClass>
+      <SystemUnitClass Name="WaterPurification" ID="cc6c15a1-149a-4421-a416-5f13359554f6" RefBaseClassPath="SystemUnitClassLib/Processes">
+        <ExternalInterface Name="ProcessRessourceInput" ID="4b9e006c-2fda-47ae-a0d7-1a9e70179303" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessProductInput" ID="bb47ecc3-cdb0-4f33-86d2-4ee7037438b0" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessEnergyInput" ID="18b7cbb8-72c2-42c3-8241-66e4e0230124" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessInformationInput" ID="d506c68e-57b2-4fbc-8d1c-7b00caf77184" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessRessourceOutput" ID="8fe08e15-9777-4f2d-bcd0-e0d2482e7e23" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessProductOutput" ID="5d690d35-13a0-4a85-ba70-bcafe58d893f" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessEnergyOutput" ID="431df4f3-4525-4f2a-bb7d-7597ca848b37" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessInformationOutput" ID="2f1c06b2-de9b-42ee-a173-56154e6cb3b2" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <SupportedRoleClass RefRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Process" />
+      </SystemUnitClass>
+      <SystemUnitClass Name="Electrolysis" ID="42ae6e45-cfbf-4949-b87a-240a970b1b47" RefBaseClassPath="SystemUnitClassLib/Processes">
+        <ExternalInterface Name="ProcessRessourceInput" ID="6b60dbc1-ce6a-4d2f-8d87-7ba9d56258a0" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessProductInput" ID="745512a8-9cb3-4249-a492-38379ad5df45" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessEnergyInput" ID="3785f437-82ec-4a71-86cb-9f58acecdc13" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessInformationInput" ID="d5bda845-24b5-4bb3-8429-c26cb2ea9dde" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessRessourceOutput" ID="0a323218-4b3e-4ce9-b1f6-b7b2a285aec0" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessProductOutput" ID="e07ceaeb-c9c1-417f-a3df-f0db8ee3561d" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessEnergyOutput" ID="1df80cf5-fca3-4d01-b8e5-e6c39dba52c9" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessInformationOutput" ID="5d067d1a-229b-493b-a661-067306688b50" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <SupportedRoleClass RefRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Process" />
+      </SystemUnitClass>
+      <SystemUnitClass Name="GasCompression" ID="6b7b9f34-e89a-4751-ab14-fdff20623ef4" RefBaseClassPath="SystemUnitClassLib/Processes">
+        <ExternalInterface Name="ProcessRessourceInput" ID="ef27ae0e-bac7-49c3-9a49-d6fe620b6fc1" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessProductInput" ID="83b06741-e4f0-4809-8ac1-8dcde5c9f6a7" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessEnergyInput" ID="acfa1200-3775-4616-96ce-75fd76b57d30" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessInformationInput" ID="2da04a8a-ec59-46a3-af1c-f79f25a338c0" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessRessourceOutput" ID="864b0c3b-546a-40c2-81cd-0a2502188d1b" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessProductOutput" ID="1dba2a47-bf3e-40c3-ae6b-f47c7deec6c7" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessEnergyOutput" ID="53b2e450-e892-43f6-bce2-01eb3f546418" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessInformationOutput" ID="0073acf1-41fc-4604-b56f-6f815a8a8d1a" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <SupportedRoleClass RefRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Process" />
+      </SystemUnitClass>
+      <SystemUnitClass Name="GasStorage" ID="1ab26cc2-c65c-44da-ac53-822ca917620f">
+        <ExternalInterface Name="ProcessRessourceInput" ID="4c2c01ea-1fba-4197-bf65-33e027c2de02" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessProductInput" ID="561ab8eb-118b-4032-bf36-d7b499e7d6fa" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessEnergyInput" ID="4e6fcb3e-7328-4f66-b055-b3bf18cb44c2" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessInformationInput" ID="28f2ecfc-5735-4042-bca2-a06dc9f4cf46" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>In</DefaultValue>
+            <Value>In</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessRessourceOutput" ID="a227a3a8-4acd-41f3-8401-aac3faaf7628" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessResource">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessProductOutput" ID="3b44d433-8a55-4503-bedf-04521f091992" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessProduct">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessEnergyOutput" ID="4a41934f-3350-416d-bf73-309d2861e3c0" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessEnergy">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <ExternalInterface Name="ProcessInformationOutput" ID="3c1ab7bb-6c13-4112-852d-21de0ecea386" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector/ProcessInformation">
+          <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+            <DefaultValue>Out</DefaultValue>
+            <Value>Out</Value>
+            <Constraint Name="AllowedValues">
+              <NominalScaledType>
+                <RequiredValue>In</RequiredValue>
+                <RequiredValue>Out</RequiredValue>
+                <RequiredValue>InOut</RequiredValue>
+              </NominalScaledType>
+            </Constraint>
+          </Attribute>
+        </ExternalInterface>
+        <SupportedRoleClass RefRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Process" />
+      </SystemUnitClass>
+    </SystemUnitClass>
+  </SystemUnitClassLib>
+  <AttributeTypeLib Name="AutomationMLBaseAttributeTypeLib" ChangeMode="state">
+    <Description>Standard Automation Markup Language Attribute Type Library</Description>
+    <Version>2.10.0</Version>
+    <Copyright>AutomationML e.V.</Copyright>
+    <AttributeType Name="AssociatedExternalValue">
+      <Attribute Name="refCAEXAttribute" AttributeDataType="xs:string" />
+      <Attribute Name="refURI" AttributeDataType="xs:string" />
+      <Attribute Name="Direction" AttributeDataType="xs:string" />
+    </AttributeType>
+    <AttributeType Name="AssociatedFacet" AttributeDataType="xs:string" />
+    <AttributeType Name="Cardinality">
+      <Attribute Name="MinOccur" AttributeDataType="xs:unsignedInt" />
+      <Attribute Name="MaxOccur" AttributeDataType="xs:unsignedInt" />
+    </AttributeType>
+    <AttributeType Name="Category" AttributeDataType="xs:string" />
+    <AttributeType Name="Direction" AttributeDataType="xs:string">
+      <DefaultValue>InOut</DefaultValue>
+      <Constraint Name="AllowedValues">
+        <NominalScaledType>
+          <RequiredValue>In</RequiredValue>
+          <RequiredValue>Out</RequiredValue>
+          <RequiredValue>InOut</RequiredValue>
+        </NominalScaledType>
+      </Constraint>
+    </AttributeType>
+    <AttributeType Name="DocLang" AttributeDataType="xs:string" />
+    <AttributeType Name="Frame" AttributeDataType="">
+      <Attribute Name="x" AttributeDataType="xs:double">
+        <DefaultValue>0</DefaultValue>
+        <Value>0</Value>
+      </Attribute>
+      <Attribute Name="y" AttributeDataType="xs:double">
+        <DefaultValue>0</DefaultValue>
+        <Value>0</Value>
+      </Attribute>
+      <Attribute Name="z" AttributeDataType="xs:double">
+        <DefaultValue>0</DefaultValue>
+        <Value>0</Value>
+      </Attribute>
+      <Attribute Name="rx" AttributeDataType="xs:double">
+        <DefaultValue>0</DefaultValue>
+        <Value>0</Value>
+      </Attribute>
+      <Attribute Name="ry" AttributeDataType="xs:double">
+        <DefaultValue>0</DefaultValue>
+        <Value>0</Value>
+      </Attribute>
+      <Attribute Name="rz" AttributeDataType="xs:double">
+        <DefaultValue>0</DefaultValue>
+        <Value>0</Value>
+      </Attribute>
+    </AttributeType>
+    <AttributeType Name="ListType" AttributeDataType="xs:string" />
+    <AttributeType Name="LocalizedAttribute" AttributeDataType="xs:string" />
+    <AttributeType Name="MIMEType" AttributeDataType="xs:string" />
+    <AttributeType Name="OrderedListType" AttributeDataType="xs:string" />
+    <AttributeType Name="refURI" AttributeDataType="xs:anyURI" />
+  </AttributeTypeLib>
+  <AttributeTypeLib Name="MyAttributeTypeLib">
+    <Version>0</Version>
+    <AttributeType Name="Capacity" AttributeDataType="xs:double" />
+    <AttributeType Name="Throughput" AttributeDataType="xs:double" />
+    <AttributeType Name="LimitsCapacity" AttributeDataType="xs:double" />
+    <AttributeType Name="LimitsThroughput" AttributeDataType="xs:double" />
+    <AttributeType Name="Voltage" AttributeDataType="xs:double" Unit="V" />
+    <AttributeType Name="Pressure" AttributeDataType="xs:double" Unit="Pa" />
+    <AttributeType Name="Purified" AttributeDataType="xs:boolean" />
+  </AttributeTypeLib>
+</CAEXFile>

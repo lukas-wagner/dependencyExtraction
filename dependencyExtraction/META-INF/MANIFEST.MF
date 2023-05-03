@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: dependencyExtraction
+Bundle-SymbolicName: dependencyExtraction
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: dependencyExtraction
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Import-Package: javax.xml.bind,
+ javax.xml.bind.annotation
+Require-Bundle: com.sun.xml.bind.jaxb-impl;bundle-version="2.3.7"
+
